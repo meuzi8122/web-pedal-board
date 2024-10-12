@@ -25,13 +25,15 @@ const deletePedal = (pedalId: string) => {
 
 <template>
   <div class="container mx-auto">
-    <h1 class="text-xl font-bold mb-3">ペダルボードを編集</h1>
+    <h1 class="text-xl font-bold mb-3">エフェクターボードを編集</h1>
     <div class="join mb-4">
       <select class="select join-item" v-model="newPedalKind">
-        <option value="">ペダルを選択してください</option>
+        <option value="">エフェクターを選択してください</option>
         <option v-for="(kind, label) in PEDAL_KINDS" :value="kind">{{ label }}</option>
       </select>
-      <button class="btn join-item" v-on:click="addPedal" v-bind:disabled="newPedalKind == ''">ペダルを追加</button>
+      <button class="btn join-item" v-on:click="addPedal" v-bind:disabled="newPedalKind == ''">
+        エフェクターを追加
+      </button>
     </div>
     <div class="flex flex-col space-y-2">
       <PedalAccordion
