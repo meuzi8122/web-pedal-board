@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MenuIcon from "./icons/menu-icon.vue";
+import DocumentIcon from "./icons/document-icon.vue";
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import MenuIcon from "./icons/menu-icon.vue";
     </div>
     <div class="flex-none">
       <label for="my-drawer-4" class="btn btn-square btn-ghost">
-        <MenuIcon />
+        <DocumentIcon />
       </label>
     </div>
   </div>
@@ -22,7 +22,7 @@ import MenuIcon from "./icons/menu-icon.vue";
     <div class="drawer-side">
       <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"></label>
       <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">
-        <li><NuxtLink to="/">PedalBoard</NuxtLink></li>
+        <li><NuxtLink to="/documents/gain">Gain</NuxtLink></li>
       </ul>
     </div>
   </div>
