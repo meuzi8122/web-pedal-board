@@ -1,5 +1,36 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { PEDAL_KINDS, PEDAL_PARAMETERS } from "~/constants/pedal";
+import type { Pedal } from "~/types/pedal";
+
+const newPedalKind = ref<string>("");
+
+const pedals = ref<Pedal[]>([]);
+
+const addPedal = () => {
+  if (newPedalKind.value == "") {
+    return;
+  }
+
+  pedals.value.push({
+    id: crypto.randomUUID(),
+    kind: newPedalKind.value,
+    parameters: PEDAL_PARAMETERS[newPedalKind.value as keyof typeof PEDAL_PARAMETERS],
+  });
+};
+</script>
 
 <template>
-  <p>hello world</p>
+  <div class="container mx-auto">
+    <h1 class="text-xl font-bold mb-3">ペダルボードを編集</h1>
+    <div class="join mb-4">
+      <select class="select join-item" v-model="newPedalKind">
+        <option value="">ペダルを選択してください</option>
+        <option v-for="kind of PEDAL_KINDS" :value="kind.kind">{{ kind.label }}</option>
+      </select>
+      <button class="btn join-item" v-on:click="addPedal" v-bind:disabled="newPedalKind == ''">ペダルを追加</button>
+    </div>
+    <div class="flex flex-col space-y-2">
+      <PedalAccordion v-for="(pedal, index) of pedals" :pedal="pedal" :position="index + 1" />
+    </div>
+  </div>
 </template>
