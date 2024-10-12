@@ -17,6 +17,10 @@ const addPedal = () => {
     parameters: PEDAL_PARAMETERS[newPedalKind.value as keyof typeof PEDAL_PARAMETERS],
   });
 };
+
+const deletePedal = (pedalId: string) => {
+  pedals.value = pedals.value.filter((pedal) => pedal.id != pedalId);
+};
 </script>
 
 <template>
@@ -30,7 +34,12 @@ const addPedal = () => {
       <button class="btn join-item" v-on:click="addPedal" v-bind:disabled="newPedalKind == ''">ペダルを追加</button>
     </div>
     <div class="flex flex-col space-y-2">
-      <PedalAccordion v-for="(pedal, index) of pedals" :pedal="pedal" :position="index + 1" />
+      <PedalAccordion
+        v-for="(pedal, index) of pedals"
+        :pedal="pedal"
+        :position="index + 1"
+        v-on:onDeletePedalButtonClick="deletePedal"
+      />
     </div>
   </div>
 </template>

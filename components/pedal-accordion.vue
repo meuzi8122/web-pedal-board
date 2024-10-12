@@ -20,6 +20,7 @@ const { pedal } = defineProps<{ pedal: Pedal; position: number }>();
           <input type="text" class="input input-bordered w-full max-w-xs" />
         </label>
       </div>
+      <button class="btn" v-on:click="$emit('onDeletePedalButtonClick', pedal.id)">delete</button>
     </div>
   </div>
 </template>
