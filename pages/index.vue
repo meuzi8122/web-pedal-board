@@ -25,7 +25,7 @@ const addPedal = () => {
     <div class="join mb-4">
       <select class="select join-item" v-model="newPedalKind">
         <option value="">ペダルを選択してください</option>
-        <option v-for="kind of PEDAL_KINDS" :value="kind.kind">{{ kind.label }}</option>
+        <option v-for="(kind, label) in PEDAL_KINDS" :value="kind">{{ label }}</option>
       </select>
       <button class="btn join-item" v-on:click="addPedal" v-bind:disabled="newPedalKind == ''">ペダルを追加</button>
     </div>

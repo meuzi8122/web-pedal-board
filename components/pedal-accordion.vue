@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { PEDAL_KINDS } from "~/constants/pedal";
 import type { Pedal } from "~/types/pedal";
 
 const { pedal } = defineProps<{ pedal: Pedal; position: number }>();
@@ -7,7 +8,9 @@ const { pedal } = defineProps<{ pedal: Pedal; position: number }>();
 <template>
   <div class="collapse bg-base-200">
     <input type="radio" name="pedal-detail" />
-    <div class="collapse-title text-xl font-medium">{{ `Pedal-${position} / ${pedal.kind}` }}</div>
+    <div class="collapse-title text-xl font-medium">
+      {{ `Pedal-${position} / ${PEDAL_KINDS[pedal.kind as keyof typeof PEDAL_KINDS]}` }}
+    </div>
     <div class="collapse-content">
       <div v-for="(value, name) in pedal.parameters">
         <label class="form-control w-full max-w-xs">

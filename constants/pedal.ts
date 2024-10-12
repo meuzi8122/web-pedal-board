@@ -1,12 +1,12 @@
-export const PEDAL_KINDS: { kind: string; label: string }[] = [
-  { kind: "chorus", label: "chorus" },
-  { kind: "compressor", label: "compressor" },
-  { kind: "delay", label: "delay" },
-  { kind: "gain", label: "gain" },
-  { kind: "limiter", label: "limiter" },
-  { kind: "phaser", label: "phaser" },
-  { kind: "reverb", label: "reverb" },
-];
+export const PEDAL_KINDS = {
+  chorus: "chorus",
+  compressor: "compressor",
+  delay: "delay",
+  gain: "gain",
+  limiter: "limiter",
+  phaser: "phaser",
+  reverb: "reverb",
+};
 
 export const PEDAL_PARAMETERS = {
   chorus: {
